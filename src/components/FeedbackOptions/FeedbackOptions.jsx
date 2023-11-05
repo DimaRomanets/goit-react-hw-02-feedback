@@ -1,28 +1,31 @@
+import React from 'react';
+import s from './FeedbackOptions.module.css';
 import PropTypes from 'prop-types';
-import { BoxBtn, Button } from './FeedbackOptions.styled';
 
-  export const FeedbackOptions = ({nameBtn, handlClickButton}) => {
-    
-   return (
-    <BoxBtn>
-        
-        {nameBtn.map(nameBtn=> (
-            
-            <li key={nameBtn}>
-            <Button name={nameBtn}
-            onClick={handlClickButton}>{nameBtn[0].toUpperCase()+nameBtn.slice(1)}</Button>
-            </li>))
-        }
-       
-    </BoxBtn>
-   );
+export default class FeedbackOptions extends React.Component {
+    constructor({ options, onLeaveFeedback }) {
+        super();
+        this.onClick = onLeaveFeedback;
+        this.colors = ['#00ff00', '#00ffee', '#ff0000'];
+        this.buttons = options.map((option, index) => (
+            <button
+                key={option}
+                className={s.button}
+                type="button"
+                onClick={() => this.onClick(option)}
+                style={{ backgroundColor: this.colors[index] }}
+            >
+                {option}
+            </button>
+        ));
+    }
+
+    render() {
+        return <div className={s.container}>{this.buttons}</div>;
+    }
+}
+
+FeedbackOptions.propTypes = {
+    options: PropTypes.arrayOf(PropTypes.string).isRequired,
+    onLeaveFeedback: PropTypes.func.isRequired,
 };
-
-FeedbackOptions.propTypes ={
-    handlClickButton: PropTypes.func.isRequired,
-    nameBtn: PropTypes.arrayOf(PropTypes.string).isRequired,
-               
-};
-
-
-export default FeedbackOptions;

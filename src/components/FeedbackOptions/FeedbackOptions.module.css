@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.button{
+    width: 150px;
+    height: 70px;
+    text-transform: capitalize;
+    cursor: pointer;
+}
