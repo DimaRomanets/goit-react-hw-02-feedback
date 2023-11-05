@@ -1,6 +1,14 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled'
 
-export const Text = styled.p`
-  text-align: center;
-  font-size: 26px;
-`;
+export const Title = styled.h2`
+
+    width: 500px;
+    margin: 0 0 30px 0;
+    text-align: center;
+
+    font-size: 20px;
+    font-weight: 500;
+    color: #000080;
+
+
+`

@@ -1,16 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { SectionWrap, SectionTitle } from './Section.styled';
 
-export const Section = ({ title, children }) => {
-  return (
-    <SectionWrap>
-      <SectionTitle>{title}</SectionTitle>
-      {children}
-    </SectionWrap>
-  );
+import PropTypes from 'prop-types';
+import { BoxTitle, Title } from './Section.styled';
+
+
+ const Section =({title, children}) =>{
+    return (
+        <BoxTitle>
+            {title && <Title>{title}</Title>}
+            {children}
+        </BoxTitle>
+        
+    )
 };
 
 Section.propTypes = {
-  title: PropTypes.string.isRequired,
-};
+    title: PropTypes.string.isRequired,
+    children: PropTypes.element.isRequired,
+}
+
+export default Section;

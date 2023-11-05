@@ -1,11 +1,22 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled'
 
-export const SectionWrap = styled.section`
-  margin: 0 auto;
+export const BoxTitle = styled.section`
+    width: 500px;
+    margin-right:auto;
+    margin-left: auto;
+    padding: 20px;
+
+    font-family: 'Roboto Slab', sans-serif;
+
 `;
 
-export const SectionTitle = styled.h2`
-  text-align: center;
-  font-size: 40px;
-  letter-spacing: 2px;
-`;
+export const Title = styled.h2`
+    width: 500px;
+    margin: 0 0 30px 0;
+    text-align: center;
+
+    font-size: 25px;
+    font-weight: 500;
+
+
+`
