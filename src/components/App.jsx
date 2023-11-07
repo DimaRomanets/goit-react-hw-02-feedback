@@ -24,11 +24,20 @@ class App extends React.Component {
   //     // console.log(prevState);
   //   });
   // }
+  countTotalFeedback = () => {
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
+  };
+
+  countPositiveFeedbackPercentage = () => {
+    const total = this.countTotalFeedback();
+    return Math.round((this.state.good * 100) / total);
+  };
 
   render() {
     const { good, neutral, bad } = this.state;
-    const total = good + neutral + bad;
-    const percent = Math.floor((good / total) * 100);
+    const total = this.countTotalFeedback();
+    const percent = this.countPositiveFeedbackPercentage();
     return (
       <div style={{ height: '100vh', fontSize: 32, color: '#010101' }}>
         <Section title={'Please leave feedback'}>
